@@ -24,6 +24,7 @@ HttpSession sess = request.getSession(false);
                 // step3) creating statement object
                 // statement object is created using object of Connection.
                 Statement stm = conn.createStatement();
+                Statement stm2 = conn.createStatement();
                 
                 
                 // step4) firing queries.
@@ -46,6 +47,14 @@ HttpSession sess = request.getSession(false);
                     
                     
                 }
+                Double sum=0.0;
+                ResultSet rs1 = stm2.executeQuery("select sum(price) from "+username+"");
+                while(rs1.next()){
+                    sum=rs1.getDouble(1);
+                }
+                out.print("<td colspan=2 align='center'> total </td>");
+                out.print(" <td> "+sum+"/-</td> <td>Rs</td>");
+                out.print("</table>");
                 out.print("<br><br>");
                 
                 rs.close();
