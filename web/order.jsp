@@ -1,4 +1,4 @@
-<%@page import="java.util.Vector"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ page import ="java.sql.*" %>
 <%@ page import ="javax.sql.*" %>
@@ -14,7 +14,7 @@
                     String username =sess.getAttribute("username").toString();
 
 
-                    Vector v = new Vector();
+                    
                     if(username.equals(null)){
                         response.sendError(654, "Login First! then proceed");
                     }

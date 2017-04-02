@@ -9,16 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Manisha Dairy</title>
+        <title>National Bakery</title>
     </head>
     <body>
         <%
-            out.print("<a href='homepage.jsp'> Home </a>");  
+            out.print("<a href='homepage.jsp'> Home </a>");
             HttpSession sess = request.getSession(false);
             String username =sess.getAttribute("username").toString();
-            if(username.equals(null)){
-                response.sendError(654, "Login First! then proceed");
-            }
+           
             
                 //------------ from here jdbc code starts-------.
                 // step1) loading jdbc-odbc drivers
@@ -35,7 +33,7 @@
                 Statement stm = conn.createStatement();
                 
                 // step4) firing queries.
-                ResultSet rs = stm.executeQuery("select * from manishadairy");
+                ResultSet rs = stm.executeQuery("select * from nationalbakery");
                 
                 int flag = 0;
                 double max,price;
@@ -52,7 +50,7 @@
                     max = rs.getDouble(3);
                     price = rs.getDouble(4);
                     out.print("<form action='addtocart.jsp'>");
-                    out.print("<input type='hidden' name='shop' value='manishadairy'>");
+                    out.print("<input type='hidden' name='shop' value='nationalbakery'>");
                      out.print("<tr>");
                      out.print("<td>"+rs.getString(2)+"</td>");
                      out.print("<td>"+rs.getString(3)+"</td>");
@@ -83,3 +81,4 @@
         
     </body>
 </html>
+
